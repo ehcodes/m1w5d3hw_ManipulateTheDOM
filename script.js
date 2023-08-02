@@ -13,34 +13,63 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.querySelector('#quote-of-the-day').textContent = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
   };
   randomQuote();
-  
-  // Do all of your work inside the document.addEventListener  
 
   // Part 1
-
+  const mainTitleEl = document.querySelector(`#main-title`)
 
   // Part 2
-
+  const bodyEl = document.querySelector(`body`)
 
   // Part 3
-
-
+  const favoritesUL = document.querySelector(`#favorite-things`)
+  favoritesUL.lastElementChild.remove()
+  
   // Part 4
-
+  const specialTitles = document.querySelectorAll(`.special-title`)
+  specialTitles.forEach((el)=>{
+    el.style.fontSize=`2rem`
+  })
 
   // Part 5
-
+  let pastRaces = document.querySelector(`#past-races`)
+  pastRaces.children[3].remove()
 
   // Part 6
-
+  let newlyAddedLI = document.createElement(`li`)
+  newlyAddedLI.innerText='San Juan'
+  pastRaces.appendChild(newlyAddedLI)
 
   // Part 7
-
+  let newlyAddedBlogPost = document.createElement(`div`)
+  newlyAddedBlogPost.classList.add('blog-post', 'purple')
+  // ugly out of place h2
+  let newlyAddedBlogPostH2 = document.createElement(`h2`)
+  newlyAddedBlogPostH2.innerText = `San Juan`
+  let newlyAddedBlogPostText = document.createElement(`p`)
+  newlyAddedBlogPostText.innerText = `I heard the marvelous sound of the coqui!`
+  newlyAddedBlogPost.appendChild(newlyAddedBlogPostH2)
+  newlyAddedBlogPost.appendChild(newlyAddedBlogPostText)
+  document.querySelector(`.main`).appendChild(newlyAddedBlogPost)
 
   // Part 8
-
-
+  const quoteTitle = document.querySelector(`#quote-title`)
+  quoteTitle.addEventListener('click',(e)=>{
+      e.preventDefault()
+      randomQuote()
+  })
   // Part 9
+  const blogPosts = document.querySelectorAll(`.blog-post`)
+  blogPosts.forEach((el)=>{
+    el.addEventListener('mouseout',(e)=>{
+      e.preventDefault()
+      el.classList.toggle('purple')
+      
+    })
+    el.addEventListener('mouseenter',(e)=>{
+      e.preventDefault()
+      el.classList.toggle('red')
+    })
+  })
 
 
 
